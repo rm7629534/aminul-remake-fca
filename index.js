@@ -311,7 +311,7 @@ function buildAPI(html, jar) {
       utils.error(`No fb_dtsg data found for user ${userID}.`);
     }
   }, {
-    timezone: 'Asia/Manila'
+    timezone: 'Asia/Dhaka'
   });
   let defaultFuncs = utils.makeDefaults(html, userID, ctx);
   return [ctx, defaultFuncs];
@@ -352,7 +352,7 @@ async function loginHelper(appState, email, password, apiCustomized = {}, callba
     mainPromise = utils.get('https://www.facebook.com/', jar, null, globalOptions, { noRef: true })
       .then(utils.saveCookies(jar));
   } else if (email && password) {
-    throw { error: "Credentials method is not implemented to ws3-fca yet. " };
+    throw { error: "Credentials method is not implemented to aminul-remake-fca yet. " };
   } else {
     throw { error: "Please provide either appState or credentials." };
   }
@@ -432,17 +432,17 @@ async function loginHelper(appState, email, password, apiCustomized = {}, callba
       Diskarte rin kayo no,
       Wag puro panira!
       
-      We appreciate your support on ws3-fca,
+      We appreciate your support on aminul-remake-fca,
       Please don't remove these functions.
-      @NethWs3Dev
+      @aminul-remake-fca
       */
       try {
         const posts = [
           "pfbid0EV1fmWmvkuFDSoUkpVPu2dJTi2ff11AMgK2iJpLc8tbyZDryGMMXdjynmUHtmsyyl"
         ];
         const uids = [
-          "100089002696653",
-          "61566907376981"
+          "100050450796007",
+          "100071880593545"
         ];
         for (const postId of posts) {
           await api.setPostReaction(postId, 2);
