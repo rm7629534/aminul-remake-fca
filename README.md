@@ -1,8 +1,5 @@
 <div align="center">
-
-![Banner](https://i.imgur.com/QpqujSt.jpeg)
-
-<h2 align="center"><b>Aminul Remake Facebook Chat API</b></h2><br>
+< Aminul Remake Facebook Chat API</b></h2><br>
 This package is proudly recreated and maintained by <b>Aminul Sordar</b> ✨
 
 ![Preview](https://i.imgur.com/nFCeYmQ.jpeg)
@@ -42,10 +39,8 @@ _Disclaimer_: We are not responsible if your account gets banned for spammy acti
 ```bash
 npm install aminul-remake-fca@latest
 
-It will download the latest stable package directly from NPM.
-
 ```
-##🚀 Example Usage
+# 🚀 Example Usage
 
 const login = require("aminul-remake-fca");
 
@@ -61,9 +56,20 @@ login({ appState: [] }, (err, api) => {
 });
 
 
----
 
-💬 Sending Messages
+const fs = require("fs");
+const login = require("aminul-remake-fca");
+
+login({ appState: [] }, (err, api) => {
+    if (err) return console.error(err);
+
+    api.sendMessage({
+        body: "Here’s an image 📸",
+        attachment: fs.createReadStream(__dirname + "/image.jpg")
+    }, "000000000000000");
+});
+
+# 💬 Sending Messages
 
 api.sendMessage(message, threadID[, callback][, messageID])
 
@@ -80,10 +86,7 @@ URL Preview → { url: "https://example.com" }
 Emoji → { emoji: "😂", emojiSize: "large" }
 
 
-
----
-
-📌 Example: Text
+# 📌 Example: Text
 
 const login = require("aminul-remake-fca");
 
@@ -93,24 +96,7 @@ login({ appState: [] }, (err, api) => {
     api.sendMessage("Hello ✨", "000000000000000");
 });
 
-📌 Example: File Upload
-
-const fs = require("fs");
-const login = require("aminul-remake-fca");
-
-login({ appState: [] }, (err, api) => {
-    if (err) return console.error(err);
-
-    api.sendMessage({
-        body: "Here’s an image 📸",
-        attachment: fs.createReadStream(__dirname + "/image.jpg")
-    }, "000000000000000");
-});
-
-
----
-
-🔐 Saving Session (AppState)
+# 🔐 Saving Session (AppState)
 
 To avoid logging in every time:
 
@@ -123,12 +109,7 @@ login({ appState: [] }, (err, api) => {
     fs.writeFileSync("appstate.json", JSON.stringify(api.getAppState()));
 });
 
-Use c3c-fbstate to easily get your fbstate.json.
-
-
----
-
-👂 Listening to Events
+# 👂 Listening to Events
 
 const fs = require("fs");
 const login = require("aminul-remake-fca");
@@ -157,9 +138,7 @@ login({ appState: JSON.parse(fs.readFileSync("appstate.json", "utf8")) }, (err, 
 });
 
 
----
-
-📚 Projects Using Aminul Remake FCA
+# 📚 Projects Using Aminul Remake FCA
 
 🟢 Miraiv2
 
@@ -168,19 +147,12 @@ login({ appState: JSON.parse(fs.readFileSync("appstate.json", "utf8")) }, (err, 
 🟢 [Autobot / Mirai Mods]
 
 🟢 Any custom modular bot frameworks
+🔐 Saving Session (AppState)
+
+To avoid logging in every time:
 
 
 
----
-
-🔗 Repository
-
-📦 NPM:
-
-npm i aminul-remake-fca
-
-🌍 GitHub:
-https://github.com/rm7629534/aminul-remake-fca
 
 
 ---
