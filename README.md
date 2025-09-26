@@ -1,3 +1,5 @@
+---
+
 <div align="center">
 
 ![Banner](https://i.imgur.com/QpqujSt.jpeg)
@@ -42,3 +44,155 @@ _Disclaimer_: We are not responsible if your account gets banned for spammy acti
 
 ```bash
 npm install aminul-remake-fca@latest
+
+It will download the latest stable package directly from NPM.
+
+
+---
+
+🚀 Example Usage
+
+const login = require("aminul-remake-fca");
+
+// Simple echo bot
+login({ appState: [] }, (err, api) => {
+    if (err) return console.error(err);
+
+    api.listenMqtt((err, event) => {
+        if (err) return console.error(err);
+
+        api.sendMessage(event.body, event.threadID);
+    });
+});
+
+
+---
+
+💬 Sending Messages
+
+api.sendMessage(message, threadID[, callback][, messageID])
+
+Supported types:
+
+Text → { body: "Hello World" }
+
+Sticker → { sticker: "STICKER_ID" }
+
+Image/File → { attachment: fs.createReadStream("file.jpg") }
+
+URL Preview → { url: "https://example.com" }
+
+Emoji → { emoji: "😂", emojiSize: "large" }
+
+
+
+---
+
+📌 Example: Text
+
+const login = require("aminul-remake-fca");
+
+login({ appState: [] }, (err, api) => {
+    if (err) return console.error(err);
+
+    api.sendMessage("Hello ✨", "000000000000000");
+});
+
+📌 Example: File Upload
+
+const fs = require("fs");
+const login = require("aminul-remake-fca");
+
+login({ appState: [] }, (err, api) => {
+    if (err) return console.error(err);
+
+    api.sendMessage({
+        body: "Here’s an image 📸",
+        attachment: fs.createReadStream(__dirname + "/image.jpg")
+    }, "000000000000000");
+});
+
+
+---
+
+🔐 Saving Session (AppState)
+
+To avoid logging in every time:
+
+const fs = require("fs");
+const login = require("aminul-remake-fca");
+
+login({ appState: [] }, (err, api) => {
+    if (err) return console.error(err);
+
+    fs.writeFileSync("appstate.json", JSON.stringify(api.getAppState()));
+});
+
+Use c3c-fbstate to easily get your fbstate.json.
+
+
+---
+
+👂 Listening to Events
+
+const fs = require("fs");
+const login = require("aminul-remake-fca");
+
+login({ appState: JSON.parse(fs.readFileSync("appstate.json", "utf8")) }, (err, api) => {
+    if (err) return console.error(err);
+
+    api.setOptions({ listenEvents: true });
+
+    var stopListening = api.listenMqtt((err, event) => {
+        if (err) return console.error(err);
+
+        switch (event.type) {
+            case "message":
+                if (event.body === "/stop") {
+                    api.sendMessage("👋 Goodbye!", event.threadID);
+                    return stopListening();
+                }
+                api.sendMessage("EchoBot: " + event.body, event.threadID);
+                break;
+            case "event":
+                console.log(event);
+                break;
+        }
+    });
+});
+
+
+---
+
+📚 Projects Using Aminul Remake FCA
+
+🟢 Miraiv2
+
+🟢 GoatBot
+
+🟢 [Autobot / Mirai Mods]
+
+🟢 Any custom modular bot frameworks
+
+
+
+---
+
+🔗 Repository
+
+📦 NPM:
+
+npm i aminul-remake-fca
+
+🌍 GitHub:
+https://github.com/rm7629534/aminul-remake-fca
+
+
+---
+
+✨ Made with ❤️ by Aminul Sordar
+🌐 Facebook | 🐙 GitHub
+
+</div>
+```
+---
