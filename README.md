@@ -1,5 +1,3 @@
----
-
 <div align="center">
 
 ![Banner](https://i.imgur.com/QpqujSt.jpeg)
@@ -38,7 +36,6 @@ _Disclaimer_: We are not responsible if your account gets banned for spammy acti
 - ✅ Optimized user-agent = less frequent logouts.  
 - ✅ Tested with **Mirai, GoatBot, Autobot** style frameworks.
 
----
 
 # 📥 Installation
 
@@ -47,10 +44,8 @@ npm install aminul-remake-fca@latest
 
 It will download the latest stable package directly from NPM.
 
-
----
-
-🚀 Example Usage
+```
+##🚀 Example Usage
 
 const login = require("aminul-remake-fca");
 
