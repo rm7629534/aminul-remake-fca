@@ -1,6 +1,5 @@
 <div align="center">
-< Aminul Remake Facebook Chat API</b></h2><br>
-This package is proudly recreated and maintained by <b>Aminul Sordar</b> ✨
+< Aminul Remake Facebook Chat API >
 
 ![Preview](https://i.imgur.com/nFCeYmQ.jpeg)
 
@@ -151,15 +150,14 @@ login({ appState: JSON.parse(fs.readFileSync("appstate.json", "utf8")) }, (err, 
 
 To avoid logging in every time:
 
+ # 🔗 Repository
 
+## 📦 NPM
+```bash
+npm i aminul-remake-fca
 
-
+```
 
 ---
 
 ✨ Made with ❤️ by Aminul Sordar
-🌐 Facebook | 🐙 GitHub
-
-</div>
-```
----
